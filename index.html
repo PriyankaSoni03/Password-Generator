@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+
+    <style>
+        .active{
+            opacity: 1;
+        }
+        /* .backgroundColor{
+            background: linear-gradient(231deg, rgba(22, 6, 40, 1) 0%, rgba(52, 28, 79, 1) 50%, rgba(88, 7, 125, 1) 100%);
+        } */
+    </style>
+</head>
+<body>
+    <div class="bg-[#1a1f36] min-h-screen flex flex-col items-center justify-center font-sans">
+    <!-- <div class="bg-[#98FF98]"> -->
+        <h1 class="text-3xl font-bold text-white uppercase mb-6 pb-2">Password Generator</h1>
+        
+        <!-- Password Display and copy button -->
+        <div class="bg-[#4d5367] w-[500px] mb-3 border-b-4 border-b-[#5dade2] rounded-lg flex items-center p-3 justify-between shadow-inner">
+            <!-- Output area -->
+            <!-- dataPasswordDisplay is a custom attribute by which we can fetch any html code by using querySelector. -->
+            <input class="text-xl flex-1 bg-transparent border-none outline-none text-white placeholder-gray-400" readonly placeholder="Password" data-passwordDisplay>
+            
+            <!-- copy button -->
+            <button data-copy>
+                <span data-copyMsg class="active"></span>
+                <img src="./assets/copy.svg" width="23" height="23">
+            </button>
+        </div>
+
+        <div class="bg-[#4d5367] w-[500px] p-4 rounded-lg text-white">
+            <!-- Password length and checkboxes -->
+            <div>
+                <!-- Password Length Section -->
+                <div class="text-lg">
+                    <h2>Password Length</h2>
+                    <p data-lengthNumber></p>
+                </div>
+
+                <!-- Slider -->
+                <input type="range" min="1" max="20" step="1" data-lengthSlider class="w-full mt-2">
+
+                <!-- Check Boxes -->
+                <div>
+                    <input type="checkbox" id="uppercase">
+                    <label for="uppercase">Includes Uppercase Letters</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="lowercase">
+                    <label for="uppercase">Includes Lowercase Letters</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="numbers">
+                    <label for="uppercase">Includes Number</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="symbols">
+                    <label for="uppercase">Includes Symbol</label>
+                </div>
+            </div>
+
+            <!-- strength section -->
+            <div class="flex items-center justify-between mb-6">
+                <p class="text-white font-medium text-lg mt-3">Strength</p> 
+                <!-- red, green light -->
+                <div data-indicator class="w-5 h-5 rounded-full"></div>
+            </div>
+
+            <!-- Generate Password button -->
+            <button class="generateButton w-full py-3 bg-[#1a1f36] hover:bg-[#242756] font-semibold rounded-lg transition duration-200 shadow-md hover:shadow-lg" >Generate Password</button>
+        </div>
+
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+</html>
